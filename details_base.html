@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokedex</title>
+    
+        <!-- Normalize CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+            integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+        <!-- Font Roboto -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700&display=swap" rel="stylesheet">
+    
+        <!-- Nosso CSS -->
+        <link rel="stylesheet" href="/assets/css/global.css">
+        <link rel="stylesheet" href="/assets/css/pokedex.css">
+        <link rel="stylesheet" href="/assets/css/details-base.css">
+        <link rel="stylesheet" href="/assets/css/tabs.css">
+    </head>
+<body>
+
+    <div class="pokemon-selected">
+        <div class="pokemon-selected-box">
+            <div class="pokemon-selected-top grass">
+                <div class="pokemon-controls">
+                    <div class="pokemon-back">
+                        <i class="fa-sharp fa-solid fa-arrow-left" style="color: #ffffff;" title="Back"></i>
+                    </div>
+                    <div class="pokemon-favorite">
+                        <i class="fa-sharp fa-regular fa-heart" style="color: #ffffff;" class="Favorite it!"></i>
+                    </div>
+                </div>
+
+                <div class="pokemon-info">
+                    <div class="pokemon-name-box">
+                        <span class="pokemon-name">Bulbasaur</span>
+                        <ol class="pokemon-types">
+                            <li class="pokemon-type grass">Grass</li>
+                            <li class="pokemon-type poison">Poison</li>
+                        </ol>
+                    </div>
+                    <div class="pokemon-number">
+                        #001
+                    </div>
+                </div>
+
+                <div class="pokemon-image">
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="bulbasaur">
+                </div>
+            </div>
+            <div class="pokemon-bottom">
+                
+                <!-- Tab links -->
+                <div class="tab">
+                    <button class="tablinks active" onclick="openCity(event, 'about')">About</button>
+                    <button class="tablinks" onclick="openCity(event, 'baseStats')">Base Stats</button>
+                    <button class="tablinks" onclick="openCity(event, 'evolution')">Evolution</button>
+                    <button class="tablinks" onclick="openCity(event, 'moves')">Moves</button>
+                </div>
+                
+                <!-- Tab content -->
+                <div id="about" class="tabcontent" style="display:block;">
+
+                    <table border="0">
+                        <tr>
+                            <th width="80">Species</th>
+                            <td>Seed</td>
+                        </tr>
+                        <tr>
+                            <th>Height</th>
+                            <td>2'3,6* (0,70cm)</td>
+                        </tr>
+                        <tr>
+                            <th>Weight</th>
+                            <td>15.2 lbs (6.9 kg)</td>
+                        </tr>
+                        <tr>
+                            <th>Abilities</th>
+                            <td>Overgrow, Chlorophyl</td>
+                        </tr>
+                    </table>
+
+                    <h2>Breeding</h2>
+
+                    <table border="0">
+                        <tr>
+                            <th width="80">Gender</th>
+                            <td>87.5%   12.5%</td>
+                        </tr>
+                        <tr>
+                            <th>Egg Groups</th>
+                            <td>Monster</td>
+                        </tr>
+                        <tr>
+                            <th>Egg Cycle</th>
+                            <td>Grass</td>
+                        </tr>
+                    </table>
+
+                </div>
+                
+                <div id="baseStats" class="tabcontent">
+                    
+                </div>
+                
+                <div id="evolution" class="tabcontent">
+                    
+                </div>
+                
+                <div id="moves" class="tabcontent">
+                    
+                </div>
+
+            </div>
+        </div>        
+    </div>
+    
+    <script src="https://kit.fontawesome.com/276f2e09a1.js" crossorigin="anonymous"></script>
+    <script src="./assets/js/tabs.js" crossorigin="anonymous"></script>
+
+</body>
+</html>
