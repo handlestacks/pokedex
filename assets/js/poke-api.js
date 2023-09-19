@@ -34,8 +34,8 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
         .then(pokemonsDetails => pokemonsDetails)
 }
 
-pokeApi.getModalDetail = pokemon => {
-    const url = `https://pokeapi.co/api/v2/pokemon/`;
+pokeApi.getModalDetail = order => {
+    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
     return fetch(url)
         .then(response => response.json())
         .then(jsonBody => jsonBody.results)

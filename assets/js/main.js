@@ -156,11 +156,11 @@ loadMoreButton.addEventListener('click', () => {
 
 });
 
-function openDetails(pokemon) {
+function openDetails(order) {
 
-    pokeApi.getModalDetail(pokemon).then((pokemons) => {
+    pokeApi.getModalDetail(order).then((pokemons = []) => {
         //const newHtml = convertToModalDetail();
-        const newHtml = pokemons.map(convertToModalDetail).join('');
+        const newHtml = pokemons.map(convertToModalDetail);
         myModal.innerHTML = newHtml;
     });    
 
