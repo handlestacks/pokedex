@@ -32,7 +32,7 @@ function convertToModalDetail(pokemon) {
         
         <div class="pokemon-selected">
             <div class="pokemon-selected-box">
-                <div class="pokemon-selected-top grass">
+                <div class="pokemon-selected-top ${pokemon.type}">
                     <div class="pokemon-controls">
                         <div class="pokemon-back">
                             <i class="fa-sharp fa-solid fa-arrow-left close" style="color: #ffffff;" title="Back"></i>
@@ -46,17 +46,16 @@ function convertToModalDetail(pokemon) {
                         <div class="pokemon-name-box">
                             <span class="pokemon-name">Bulbasaur</span>
                             <ol class="pokemon-types">
-                                <li class="pokemon-type grass">Grass</li>
-                                <li class="pokemon-type poison">Poison</li>
+                                ${pokemon.types.map(type => `<li class="pokemon-type ${type}">${type}</li>`).join('')}
                             </ol>
                         </div>
                         <div class="pokemon-number">
-                            #001
+                            #${pokemon.number}
                         </div>
                     </div>
     
                     <div class="pokemon-image">
-                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/1.svg" alt="bulbasaur">
+                        <img src="${pokemon.photo}" alt="${pokemon.name}">
                     </div>
                 </div>
                 <div class="pokemon-bottom">
@@ -137,6 +136,7 @@ function loadPokemonItens(offset, limit) {
         const newHtml = pokemons.map(convertPokemonToLi).join('');
         pokemonList.innerHTML += newHtml;
     });
+
 }
 
 loadPokemonItens(offset, limit);
@@ -156,17 +156,16 @@ loadMoreButton.addEventListener('click', () => {
 
 });
 
-function openDetails() {
+function openDetails(pokemon) {
 
-    // pokeApi.getModalDetail(pokemon).then((pokemons = []) => {
-    //     const newHtml = pokemons.map(convertToModalDetail).join('');
-    //     myModal.innerHTML += newHtml;
-    // });
-
-    const newHtml = convertToModalDetail();
-    myModal.innerHTML = newHtml;
+    pokeApi.getModalDetail(pokemon).then((pokemons) => {
+        //const newHtml = convertToModalDetail();
+        const newHtml = pokemons.map(convertToModalDetail).join('');
+        myModal.innerHTML = newHtml;
+    });    
 
     modal.style.display = "block";
+
     const closeButton = document.querySelector('.close');
     closeButton.addEventListener('click',() => {
         modal.style.display = "none";
