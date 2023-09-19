@@ -35,7 +35,8 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
 }
 
 pokeApi.getModalDetail = order => {
-    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=${limit}`;
+    const url = `https://pokeapi.co/api/v2/pokemon/?offset=${order}&limit=${limit}`;
+    console.log(order)
     return fetch(url)
         .then(response => response.json())
         .then(jsonBody => jsonBody.results)
